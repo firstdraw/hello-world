@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<script>
+    var nums = new Array();
+    function genNums(nums){
+        for(var i=0;i<9;i++){
+            nums[i]=Math.round(Math.random()*100);
+        }
+    }
+
+    function printArray(nums){
+
+            for(var i=0;i<nums.length;i++){
+                document.writeln(nums[i]);
+            }
+            document.write("<br>");
+        //document.write("<p>Array length is " + nums.length + "</p>")
+    }
+
+    function bubSort(nums){
+        document.write("<p>Random numbers: </p>")
+        printArray(nums);
+        document.write("<p>Bubble sort: </p>")
+        var flag = false;
+        var count = 0;
+        while(flag === false){
+            flag=true;
+            for(var i=0;i<nums.length;i++){
+                if(nums[i]>nums[i+1]){
+                    var temp=nums[i];
+                    nums[i]=nums[i+1];
+                    nums[i+1]=temp;
+                    flag=false;
+                }
+            }
+            if(flag === false){
+                count++;
+                printArray(nums);
+            }
+
+        }
+        document.write("looped " + count + " time(s).</br>")
+        printArray(nums);
+    }
+    genNums(nums);
+    bubSort(nums);
+
+</script>
+
+
+</body>
+</html>
